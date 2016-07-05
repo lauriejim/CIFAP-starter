@@ -1,6 +1,8 @@
 .btn {
   color: $text-button;
   background-color: $bg-button;
+  box-sizing: border-box;
+  display: flex;
 }
 
 .btn-small {

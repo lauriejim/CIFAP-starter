@@ -3,19 +3,23 @@ var sass = require('gulp-sass');
 var browserSync = require('browser-sync').create();
 var cssmin = require('gulp-cssmin');
 var rename = require('gulp-rename');
+var autoprefixer = require('gulp-autoprefixer');
 
 gulp.task('serve', ['sass', 'min-css'], function() {
   browserSync.init({
     server: './app'
   });
 
-  gulp.watch('app/scss/*.scss', ['sass', 'min-css']);
+  gulp.watch('app/scss/**/*.scss', ['sass', 'min-css']);
   gulp.watch('app/**/*.html').on('change', browserSync.reload);
 });
 
 gulp.task('sass', function() {
   return gulp.src('app/scss/*.scss')
     .pipe(sass())
+    .pipe(autoprefixer({
+      browsers: ['last 2 versions']
+    }))
     .pipe(gulp.dest('app/css'))
     .pipe(browserSync.stream());
 });
