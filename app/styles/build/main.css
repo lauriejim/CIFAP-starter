@@ -359,9 +359,6 @@ optgroup {
  * These selection rule sets have to be separate.
  * Customize the background color to match your design.
  */
-::-moz-selection {
-  background: #b3d4fc;
-  text-shadow: none; }
 ::selection {
   background: #b3d4fc;
   text-shadow: none; }
@@ -416,17 +413,3 @@ textarea {
 /* ==========================================================================
    Print styles
    ========================================================================== */
-body {
-  height: 100vh;
-  background-color: blue; }
-
-.btn {
-  color: #FFF;
-  background-color: #CCC;
-  box-sizing: border-box;
-  display: -ms-flexbox;
-  display: flex; }
-
-.btn-small {
-  padding: 20px;
-  border-radius: 3px; }
