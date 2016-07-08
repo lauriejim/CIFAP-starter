@@ -1,8 +1,7 @@
 {
   "name": "starter",
   "version": "1.0.0",
-  "description": "CIFAP starter",
-  "main": "index.js",
+  "description": "CIFAP starter project",
   "scripts": {
     "start": "gulp"
   },
