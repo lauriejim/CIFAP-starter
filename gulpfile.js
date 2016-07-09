@@ -11,7 +11,7 @@ var inject = require('gulp-inject');
 gulp.task('default', ['serve']);
 
 // Tâche `serve`
-// Execute les tâches `saas`, `min-css` et `ìnject` avant se de lancer
+// Execute les tâches `saas`, `min-css` et `inject` avant se de lancer
 gulp.task('serve', ['sass', 'min-css', 'inject'], function() {
   // Lancement du serveur de synchronisation - Il va chercher l'application dans le dossier `app`
   browserSync.init({
@@ -23,7 +23,7 @@ gulp.task('serve', ['sass', 'min-css', 'inject'], function() {
   gulp.watch('app/styles/scss/**/*.scss', ['sass', 'min-css', 'inject']);
 
   // Dès qu'un fichier `html` se trouvant dans le dossier `app` est modifier
-  // la page du navigateur se rafraichi
+  // la page du navigateur se rafraichi pour afficher les modificcations
   gulp.watch('app/**/*.html').on('change', browserSync.reload);
 });
 
@@ -38,7 +38,6 @@ gulp.task('sass', function() {
 
 // Tâche `min-css`
 // Minimifie le fichier `main.css` en un fichier `main.min.css`
-// C'est ce fichier qui sera chargé dans les pages `html`
 gulp.task('min-css', function() {
   return gulp.src('app/styles/build/main.css')
     .pipe(cssmin())
@@ -49,8 +48,10 @@ gulp.task('min-css', function() {
 // Tâche `inject`
 // Inject automatiquement les fichiers `css` dans les pages `html`
 gulp.task('inject', function () {
-  // Récupération des fichiers `css` et `html`
+  // Récupération des fichiers `html`
   var htmlFiles = gulp.src('app/pages/**/*.html');
+
+  // Récupération des fichiers `css` - les `libs` et le fichier `main.min.css`
   var libs = gulp.src('app/styles/libs/**/*.css');
   var build = gulp.src('app/styles/build/main.min.css');
 
