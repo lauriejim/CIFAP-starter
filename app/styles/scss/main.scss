@@ -1,7 +1,10 @@
+// Chargement des fichiers globaux
 @import "globals/initialize";
 @import "globals/_variables";
 @import "globals/_layout";
 
-// @import "pages/index";
+// Faite ici les imports de vos nouveaux fichier `scss`
+// Ne pas oublier de préfixer le nom du fichier avec un `_`
 
-// @import "components/button";
+// @import "pages/_index";
+// @import "components/_button";
